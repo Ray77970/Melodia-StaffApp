@@ -37,6 +37,6 @@ supabase.auth.getSession().then(({ data }) => {
 // 3. Redirect auch nach erfolgreichem Login
 supabase.auth.onAuthStateChange((event) => {
   if (event === 'SIGNED_IN') {
-    window.location.href = './pages/dashboard.html'
+    window.location.href = './pages/dashboard.html'"
   }
 })
