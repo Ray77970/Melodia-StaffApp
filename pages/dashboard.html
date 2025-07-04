@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melodia StaffApp – Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 p-6">
+
+  <!-- Begrüßung -->
+  <div class="mb-6">
+    <h1 class="text-3xl font-bold">Guten Morgen, <br> <span id="username">...</span>!</h1>
+    <p class="text-gray-600" id="current-date"></p>
+  </div>
+
+  <!-- Formular zur Stundeneingabe -->
+  <div class="bg-gray-50 p-4 rounded-lg shadow max-w-md">
+    <h2 class="text-xl font-semibold mb-2">Bitte Stunden eintragen</h2>
+    <form id="einsatz-form" class="space-y-4">
+      <div>
+  <label for="event" class="block text-sm">Event</label>
+  <select id="event" class="w-full border px-2 py-1 rounded" required>
+    <option value="">Wähle ein Event...</option>
+  </select>
+</div>
+
+      <div>
+        <label for="startzeit" class="block text-sm">Startzeit</label>
+        <input type="datetime-local" id="startzeit" class="w-full border px-2 py-1 rounded" required />
+      </div>
+      <div>
+        <label for="endzeit" class="block text-sm">Endzeit</label>
+        <input type="datetime-local" id="endzeit" class="w-full border px-2 py-1 rounded" required />
+      </div>
+      <div>
+        <label for="pause" class="block text-sm">Pause (in Minuten, optional)</label>
+        <input type="number" id="pause" class="w-full border px-2 py-1 rounded" />
+      </div>
+      <div>
+        <label for="kommentar" class="block text-sm">Kommentar</label>
+        <textarea id="kommentar" rows="2" class="w-full border px-2 py-1 rounded"></textarea>
+      </div>
+      <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+        Eintragen
+      </button>
+      <p id="meldung" class="text-sm mt-2 text-green-600 hidden">Gespeichert!</p>
+    </form>
+  </div>
+
+  <!-- Navigation oben rechts -->
+  <div class="absolute top-6 right-6">
+    <a href="einsaetze.html" class="text-sm text-purple-700 underline hover:text-purple-900">Einsätze</a>
+  </div>
+
+  <script type="module" src="../scripts/dashboard.js"></script>
+</body>
+</html>
