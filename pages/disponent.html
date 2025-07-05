@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disponentenansicht – Melodia StaffApp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 p-6">
+  <div class="flex justify-between items-center mb-4">
+  <div>
+    <p class="text-lg font-semibold">
+      Moin, <span id="username" class="font-bold">...</span>
+    </p>
+    <p id="current-date" class="text-sm text-gray-600">Datum wird geladen…</p>
+    
+  </div>
+</div>
+
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Einsätze der Mitarbeitenden</h1>
+  
+  </div>
+
+
+
+
+  <div id="einsatz-liste" class="space-y-4">
+    <!-- Einsätze werden hier geladen -->
+  </div>
+
+  <script type="module" src="../scripts/disponent.js"></script>
+</body>
+</html>

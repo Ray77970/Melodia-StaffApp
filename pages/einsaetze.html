@@ -14,9 +14,46 @@
   </div>
 
   <div id="einsatz-liste" class="space-y-4">
-    <!-- Hier werden die Einsätze geladen -->
+    <p class="text-gray-400 animate-pulse">Lade Einsätze...</p>
   </div>
 
+  <!-- Edit Modal -->
+<div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+    <h2 class="text-xl font-bold mb-4">Einsatz bearbeiten</h2>
+
+    <form id="edit-form" class="space-y-4">
+      <div>
+        <label for="edit-start" class="block text-sm font-medium">Startzeit</label>
+        <input type="datetime-local" id="edit-start" class="mt-1 w-full rounded border px-3 py-2" />
+      </div>
+
+      <div>
+        <label for="edit-end" class="block text-sm font-medium">Endzeit</label>
+        <input type="datetime-local" id="edit-end" class="mt-1 w-full rounded border px-3 py-2" />
+      </div>
+
+      <div>
+        <label for="edit-pause" class="block text-sm font-medium">Pause (Minuten)</label>
+        <input type="number" id="edit-pause" class="mt-1 w-full rounded border px-3 py-2" />
+      </div>
+
+      <div>
+        <label for="edit-kommentar" class="block text-sm font-medium">Kommentar</label>
+        <textarea id="edit-kommentar" class="mt-1 w-full rounded border px-3 py-2"></textarea>
+      </div>
+
+      <div class="flex justify-between">
+        <button type="button" id="cancel-edit" class="text-gray-600 hover:underline">Abbrechen</button>
+        <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Speichern</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
   <script type="module" src="../scripts/einsaetze.js"></script>
+
+
 </body>
 </html>

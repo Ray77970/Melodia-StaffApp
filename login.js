@@ -5,7 +5,6 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js'
 // Supabase-Client initialisieren
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-
 const form = document.getElementById("login-form")
 const message = document.getElementById("message")
 
@@ -44,9 +43,31 @@ form.addEventListener("submit", async function (e) {
   }
 })
 
-// Optional: Weiterleitung nach erfolgreichem Login
-supabase.auth.onAuthStateChange((event, session) => {
+
+
+supabase.auth.onAuthStateChange(async (event, session) => {
   if (event === 'SIGNED_IN') {
-    window.location.href = './pages/dashboard.html'
+    const userEmail = session.user.email
+
+    // Rolle des Users aus Tabelle holen
+    const { data: userData, error } = await supabase
+      .from("users")
+      .select("rolle")
+      .eq("email", userEmail)
+      .single()
+
+    if (error || !userData) {
+      alert("Fehler beim Abrufen der Rolle.")
+      return
+    }
+
+    const rolle = userData.rolle
+
+    if (rolle === "disponent") {
+      window.location.href = './pages/disponent.html'
+    } else {
+      window.location.href = './pages/dashboard.html'
+    }
   }
 })
+
